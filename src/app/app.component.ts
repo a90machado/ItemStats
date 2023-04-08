@@ -130,7 +130,9 @@ export class AppComponent implements OnInit {
         statStrengthSpd: (this.rolledSpd.value / this.selectedItem.spdMax),
         quality: 0
       };
-      this.rollStats.quality = (((this.rollStats.rollStrengthAtk + this.rollStats.statStrengthAtk) / 2) + ((this.rollStats.rollStrengthSpd + this.rollStats.statStrengthSpd) / 2) / 2);
+      const m34 = (this.rollStats.rollStrengthAtk + this.rollStats.statStrengthAtk) / 2;
+      const m35 = (this.rollStats.rollStrengthSpd + this.rollStats.statStrengthSpd) / 2;
+      this.rollStats.quality = (m34 + m35) / 2;
     } else {
       this.formGroupRolls.markAllAsTouched();
     }
